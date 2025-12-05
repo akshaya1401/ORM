@@ -35,10 +35,33 @@ Apply the migration files of the created app to the database
 Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
+```
+admin.py 
+
+from django.contrib import admin
+from .models import Car_Inventory, Car_InventoryAdmin
+admin.site.register(Car_Inventory, Car_InventoryAdmin)
+
+models.py
+
+from django.db import models
+from django.contrib import admin
+class  Car_Inventory(models.Model):
+    Plate_No = models.CharField(max_length=20, primary_key=True)
+    Car_Manufacturer = models.CharField(max_length=15)
+    Car_Model = models.CharField(max_length=100)
+    Car_Color = models.CharField(max_length=20)
+    Mileage = models.IntegerField( )
+
+class Car_InventoryAdmin(admin.ModelAdmin):
+    	list_display = ('Plate_No', 'Car_Manufacturer','Car_Model', 'Car_Color', 'Mileage')
+
+```
 
 
 
 ## OUTPUT
+![WhatsApp Image 2025-12-05 at 10 23 44 AM](https://github.com/user-attachments/assets/addebdc8-b30a-4b91-b01c-7e20641bdf88)
 
 
 
